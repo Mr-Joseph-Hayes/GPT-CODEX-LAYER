@@ -156,6 +156,13 @@
       "encoding": "utf-8",
       "base_sha256": null,
       "sha256": "c4b047392466f18c6e8acb30a5199afb6f6a15d2b09f8f2a4383694b5d0a1e66"
+    },
+    {
+      "path": "Windows/WasapiSoundManager.cpp",
+      "stored_path": "Windows/WasapiSoundManager.cpp",
+      "encoding": "utf-8",
+      "base_sha256": "d1051a0216f33b5cab5c0b38577d4080c83a16abc9f87afa127cd8ee20e45f8f",
+      "sha256": "6292cfd0d11af4eb17d98bf3bf26552f5c8ac8cb4907ea3c24cd5a368118b25d"
     }
   ]
 }

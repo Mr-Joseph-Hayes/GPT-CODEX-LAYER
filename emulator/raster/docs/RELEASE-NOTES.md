@@ -17,6 +17,7 @@ This release adds the approved sound presentation layer to the uploaded source r
 - In-game volume bar, mode/status notification, and persistent mute indicator.
 - Portable settings isolated from existing Mesen installations.
 - VSync on and restrained scanlines on for a fresh installation.
+- Windows audio initialization and reset fail gracefully when no output endpoint is available.
 
 ## Honest boundaries
 

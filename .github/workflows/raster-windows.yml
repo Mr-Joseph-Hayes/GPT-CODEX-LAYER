@@ -75,9 +75,18 @@ jobs:
       - name: Capture native sound window
         shell: pwsh
         run: ./emulator/raster/tools/capture-ui.ps1 -ApplicationPath package/Raster/Raster.exe -OutputPath package/Raster-Sound.png
+      - name: Upload startup diagnostics on failure
+        if: failure()
+        uses: actions/upload-artifact@v7
+        with:
+          name: Raster-Startup-Diagnostics-v0.1.0
+          path: package/Raster/
+          if-no-files-found: warn
       - name: Restore first-run defaults after QA
         shell: pwsh
-        run: Set-Content package/Raster/settings.json -Value '{"ConfigUpgrade":1}'
+        run: |
+          Get-ChildItem package/Raster -Force | Where-Object { $_.Name -notin @('Raster.exe','QUICKSTART.txt','LICENSE.txt','RELEASE-NOTES.md','BUILD.json','settings.json') } | Remove-Item -Recurse -Force
+          Set-Content package/Raster/settings.json -Value '{"ConfigUpgrade":1}'
       - name: Upload Windows build
         uses: actions/upload-artifact@v7
         with:

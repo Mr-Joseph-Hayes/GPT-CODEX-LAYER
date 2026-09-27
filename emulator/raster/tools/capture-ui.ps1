@@ -4,10 +4,17 @@ Add-Type -AssemblyName System.Drawing
 Add-Type -AssemblyName System.Windows.Forms
 $env:RASTER_SOUND_PREVIEW='1'
 $app=(Resolve-Path $ApplicationPath).Path
-$process=Start-Process -FilePath $app -PassThru
+$started=Get-Date
+$diagnostics=Join-Path (Split-Path $app -Parent) 'StartupDiagnostics'
+New-Item -ItemType Directory -Force $diagnostics | Out-Null
+Get-CimInstance Win32_SoundDevice | Format-List Name,Status | Out-File (Join-Path $diagnostics 'audio-devices.txt')
+$process=Start-Process -FilePath $app -WorkingDirectory (Split-Path $app -Parent) -RedirectStandardOutput (Join-Path $diagnostics 'stdout.txt') -RedirectStandardError (Join-Path $diagnostics 'stderr.txt') -PassThru
 try {
   Start-Sleep -Seconds 12
-  if($process.HasExited) { throw "Raster exited before UI capture: $($process.ExitCode)" }
+  if($process.HasExited) {
+    Get-WinEvent -FilterHashtable @{LogName='Application'; StartTime=$started} -ErrorAction SilentlyContinue | Select-Object TimeCreated,ProviderName,Id,Message | Format-List | Out-File (Join-Path $diagnostics 'windows-events.txt')
+    throw "Raster exited before UI capture: $($process.ExitCode)"
+  }
   $bounds=[System.Windows.Forms.Screen]::PrimaryScreen.Bounds
   $bitmap=New-Object System.Drawing.Bitmap $bounds.Width,$bounds.Height
   $graphics=[System.Drawing.Graphics]::FromImage($bitmap)
