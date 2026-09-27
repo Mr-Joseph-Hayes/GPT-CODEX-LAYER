@@ -1,0 +1,95 @@
+name: Raster Windows audio build
+on:
+  push:
+    branches: ['main']
+    paths: ['emulator/raster/**', '.github/workflows/raster-windows.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: raster-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  audio-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Test signal behavior with sanitizers
+        run: |
+          g++ -std=c++17 -O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer -Iemulator/raster/overlay/Core/Shared/Audio emulator/raster/tests/audio_test.cpp -o /tmp/raster-audio-test
+          /tmp/raster-audio-test
+  windows:
+    runs-on: windows-2025-vs2026
+    timeout-minutes: 30
+    env:
+      DOTNET_CLI_TELEMETRY_OPTOUT: 1
+      DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1
+    steps:
+      - uses: actions/checkout@v6
+      - name: Check out the exact user-supplied source revision
+        uses: actions/checkout@v6
+        with:
+          repository: nesdev-org/MesenCE
+          ref: a60e79feb4d6dcced5922d636f9211837d01e381
+          path: upstream
+      - name: Verify and apply Raster overlay
+        run: python emulator/raster/apply_overlay.py upstream
+      - uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: 10.x
+      - uses: microsoft/setup-msbuild@v3
+        with:
+          msbuild-architecture: x64
+      - name: Record source identity
+        shell: pwsh
+        run: |
+          Set-Content upstream/UI/Dependencies/Internal/BuildSha.txt -Value '${{ github.sha }}' -NoNewline
+      - name: Restore packages
+        working-directory: upstream
+        run: dotnet restore -p:TargetFramework=net10.0 -r win-x64 -p:PublishAot=true -p:BuildWithNetFrameworkHostedCompiler=true
+      - name: Include upstream shader runtime
+        uses: ./upstream/.github/actions/get-librashader-action
+        with:
+          url: librashader-x64-windows.zip
+          file: librashader.dll
+          dest: ./upstream/UI/Dependencies/
+      - name: Build native core and interface
+        working-directory: upstream
+        run: msbuild -nologo -v:m -m -p:Configuration=Release -p:Platform=x64 -t:Clean,UI -p:TargetFramework=net10.0 -p:OptimizeUi=true
+      - name: Publish self-contained Windows x64 application
+        working-directory: upstream
+        run: dotnet publish --no-restore -c Release -p:PublishAot=true -p:SelfContained=true -p:PublishSingleFile=false -p:OptimizeUi=true -p:Platform="Any CPU" -p:TargetFramework=net10.0 -r win-x64 Mesen.sln /p:PublishProfile=UI\Properties\PublishProfiles\Release.pubxml
+      - name: Package portable build and corresponding source
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force package/Raster, package/Source | Out-Null
+          Copy-Item upstream/build/TmpReleaseBuild/Mesen.exe package/Raster/Raster.exe
+          Copy-Item emulator/raster/QUICKSTART.txt package/Raster/QUICKSTART.txt
+          Copy-Item upstream/LICENSE package/Raster/LICENSE.txt
+          Copy-Item emulator/raster/docs/RELEASE-NOTES.md package/Raster/RELEASE-NOTES.md
+          Copy-Item emulator/raster/manifest.json package/Raster/BUILD.json
+          Set-Content package/Raster/settings.json -Value '{"ConfigUpgrade":1}'
+          git -C upstream diff --binary > package/Source/raster.patch
+          Copy-Item emulator/raster -Destination package/Source/overlay -Recurse
+          python emulator/raster/tools/package_source.py upstream package/Source/Raster-MesenCE-source.zip
+      - name: Capture native sound window
+        shell: pwsh
+        run: ./emulator/raster/tools/capture-ui.ps1 -ApplicationPath package/Raster/Raster.exe -OutputPath package/Raster-Sound.png
+      - name: Restore first-run defaults after QA
+        shell: pwsh
+        run: Set-Content package/Raster/settings.json -Value '{"ConfigUpgrade":1}'
+      - name: Upload Windows build
+        uses: actions/upload-artifact@v7
+        with:
+          name: Raster-Windows-x64-v0.1.0
+          path: package/Raster/
+          if-no-files-found: error
+      - name: Upload source and QA image
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: Raster-Source-and-QA-v0.1.0
+          path: |
+            package/Source/
+            package/Raster-Sound.png
+          if-no-files-found: warn

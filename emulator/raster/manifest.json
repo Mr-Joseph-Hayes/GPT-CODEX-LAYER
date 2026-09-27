@@ -1,0 +1,161 @@
+{
+  "version": "0.1.0",
+  "upstream_repository": "nesdev-org/MesenCE",
+  "upstream_commit": "a60e79feb4d6dcced5922d636f9211837d01e381",
+  "files": [
+    {
+      "path": "Core/Shared/Audio/RasterAudioProcessor.h",
+      "stored_path": "Core/Shared/Audio/RasterAudioProcessor.h",
+      "encoding": "utf-8",
+      "base_sha256": null,
+      "sha256": "44c57ad2785db274a3314e64fc58db1fb4008e53e9ab09a59884ce8e11ca7929"
+    },
+    {
+      "path": "Core/Shared/Audio/SoundMixer.cpp",
+      "stored_path": "Core/Shared/Audio/SoundMixer.cpp",
+      "encoding": "utf-8",
+      "base_sha256": "96aa53221249705111085570f0fbb7232374d3f024bf47cec1870e84f7dcecf2",
+      "sha256": "bac50868a1dab932923bf3a46146b7ba08a165fe37917a458867b3e697b96e75"
+    },
+    {
+      "path": "Core/Shared/Audio/SoundMixer.h",
+      "stored_path": "Core/Shared/Audio/SoundMixer.h",
+      "encoding": "utf-8",
+      "base_sha256": "855af8348d05be3431d4e8f025e6ae62c3ede6317320df3b860ba5762d911300",
+      "sha256": "084ffdf506153cde758b4eab60ac8aa54728c74fe40cdcb565f2b866d2b0db36"
+    },
+    {
+      "path": "Core/Shared/SettingTypes.h",
+      "stored_path": "Core/Shared/SettingTypes.h",
+      "encoding": "utf-8",
+      "base_sha256": "30d691d7f106cf3672d8d2fbe8684e3fc7f203a3d839819d18d47881edc3059e",
+      "sha256": "29a64655e28f1b2f89bed776df9c56fa510ccd81ed67f20fa1f8f7841a31e3a1"
+    },
+    {
+      "path": "Core/Shared/ShortcutKeyHandler.cpp",
+      "stored_path": "Core/Shared/ShortcutKeyHandler.cpp",
+      "encoding": "utf-8",
+      "base_sha256": "a741503a7c0144100b223c224c3459b29fa3b11cc8a767e5b3f1ce9f19fa2132",
+      "sha256": "fadf934f5f5b08c1297c3c641d96be432f410da6cfe3918d502afa526890e1d7"
+    },
+    {
+      "path": "Core/Shared/Video/DrawStringCommand.h",
+      "stored_path": "Core/Shared/Video/DrawStringCommand.h",
+      "encoding": "utf-8",
+      "base_sha256": "09972eab38de80f2e7833facb59f3b0642bca4854ad2358a96ebc2d93850d290",
+      "sha256": "2f37854dc65784f970064e23b05b63db0e19e7e2d078128a5f352597ac6bb91c"
+    },
+    {
+      "path": "Core/Shared/Video/SystemHud.cpp",
+      "stored_path": "Core/Shared/Video/SystemHud.cpp",
+      "encoding": "utf-8",
+      "base_sha256": "4dae9abc3446e29e97a3d83d87a0897596ab6f65e089b8a753be0436d084ffd3",
+      "sha256": "d1fb062f3f8fe982b1275c94f405c9eca2d91a79a685dfad91f057e20a1d5229"
+    },
+    {
+      "path": "Core/Shared/Video/SystemHud.h",
+      "stored_path": "Core/Shared/Video/SystemHud.h",
+      "encoding": "utf-8",
+      "base_sha256": "592ec510e7673faeaaea1f577c46c8f63739842713e72406a275b120189f3f12",
+      "sha256": "448300a9836bca74c3b2e2d0c42d792947dcc1a10abe5f1772108a0e1f6f3573"
+    },
+    {
+      "path": "UI/Assets/RasterDisplay.ttf",
+      "stored_path": "UI/Assets/RasterDisplay.ttf.b64",
+      "encoding": "base64",
+      "base_sha256": null,
+      "sha256": "8b6bb2266f9ffb7c08e4a09523c69b4fbd7466719d60b76b5981010de8a86a35"
+    },
+    {
+      "path": "UI/Config/AudioConfig.cs",
+      "stored_path": "UI/Config/AudioConfig.cs",
+      "encoding": "utf-8",
+      "base_sha256": "d708791067ea5ddc3232d0a9176d0ca05fb36aee9468c62d34a67e0ca751ca3e",
+      "sha256": "7b0bfdc0e83140ddbaac613960f4e309f4b222eaf3b0fdc4b0aae689c085c19e"
+    },
+    {
+      "path": "UI/Config/ConfigManager.cs",
+      "stored_path": "UI/Config/ConfigManager.cs",
+      "encoding": "utf-8",
+      "base_sha256": "140b8d80f03ad8b9abb70a44b8791ed8af7cfc63dab9eb5a9668e7a2f2754908",
+      "sha256": "fd5a35ad386443ea86fbef4318e3d40f7b979d725118641581e5c8fb1e0be215"
+    },
+    {
+      "path": "UI/Config/PreferencesConfig.cs",
+      "stored_path": "UI/Config/PreferencesConfig.cs",
+      "encoding": "utf-8",
+      "base_sha256": "89f5ec2c49a37fd138b29e0ccb343b99a545596932bc71f0a6532ae07f3fa8d1",
+      "sha256": "e713d2f8dfe022dfb9d149a9b4837af82533e5df4d754edc0d0f093e8a419ade"
+    },
+    {
+      "path": "UI/Config/Shortcuts/EmulatorShortcut.cs",
+      "stored_path": "UI/Config/Shortcuts/EmulatorShortcut.cs",
+      "encoding": "utf-8",
+      "base_sha256": "4e805f440472a6fa2ae41efa2fd6f43e63e299a72e365cab95e87a2c92e46d98",
+      "sha256": "e30ac3e637f2a1cdc0cc9cbfbacdadb7adff5364c9509152f89d768ecc8b1b62"
+    },
+    {
+      "path": "UI/Config/VideoConfig.cs",
+      "stored_path": "UI/Config/VideoConfig.cs",
+      "encoding": "utf-8",
+      "base_sha256": "29adb0f130766dd390e6b0ec7777f8980506ba6f27c0d45d144083665f4dea92",
+      "sha256": "eaafc9f993c420357d22fe14771114ce64bb22d11c8aa266d1f302995efa9eca"
+    },
+    {
+      "path": "UI/Utilities/RasterSound.cs",
+      "stored_path": "UI/Utilities/RasterSound.cs",
+      "encoding": "utf-8",
+      "base_sha256": null,
+      "sha256": "621958751cf89d37c9ef008f6f33796ce5f0be0cbc8ddcfa078b8023b1aca4de"
+    },
+    {
+      "path": "UI/Utilities/ShortcutHandler.cs",
+      "stored_path": "UI/Utilities/ShortcutHandler.cs",
+      "encoding": "utf-8",
+      "base_sha256": "22052c76f810dab0c8aa14ac33e62ef59610072c784507082d976c8cfc4fe0bb",
+      "sha256": "cc8113521484c3e1d12a835bb697d02a6a7478185d423e332761d9707abd389a"
+    },
+    {
+      "path": "UI/ViewModels/MainWindowViewModel.cs",
+      "stored_path": "UI/ViewModels/MainWindowViewModel.cs",
+      "encoding": "utf-8",
+      "base_sha256": "13f00ddf93b58db23b8db5191c98da8393d38cac94932aa7a5e2c40c49496cf8",
+      "sha256": "509f74feb497f8660b470b69753de2ab2cbf7af968ce789c04e8d5dde04561d6"
+    },
+    {
+      "path": "UI/Views/AudioConfigView.axaml",
+      "stored_path": "UI/Views/AudioConfigView.axaml",
+      "encoding": "utf-8",
+      "base_sha256": "6dc614c5dd91f1f20bfd9fd22f7a7c3531a12c907530e769f9f5b845e785d775",
+      "sha256": "a7cd3f789985b01904c15c90508ffc89ae187227fee9fd0af6ab2c111e5f1287"
+    },
+    {
+      "path": "UI/Windows/MainWindow.axaml",
+      "stored_path": "UI/Windows/MainWindow.axaml",
+      "encoding": "utf-8",
+      "base_sha256": "ce8062bbea7b02cf2e81b9e191d850cf3a0d23d344971769593e040cceae8712",
+      "sha256": "b3de8942f1cc5f500ee631c56f8be5e61a9559ae5e81ffadd9108aa18c70e994"
+    },
+    {
+      "path": "UI/Windows/MainWindow.axaml.cs",
+      "stored_path": "UI/Windows/MainWindow.axaml.cs",
+      "encoding": "utf-8",
+      "base_sha256": "d20d5aeb9343e260fa894e8ac9aeca36f2c31456975cca9c2baaca1f3d94b1be",
+      "sha256": "0ad1ea1672103c66a776a1c7942d882a52324b6dbe5bc37886c2a4bdcb082020"
+    },
+    {
+      "path": "UI/Windows/RasterSoundWindow.axaml",
+      "stored_path": "UI/Windows/RasterSoundWindow.axaml",
+      "encoding": "utf-8",
+      "base_sha256": null,
+      "sha256": "2800a143f4d80f629715c269b659bcb5a0444e30b2f791c398ee25f3d71dde77"
+    },
+    {
+      "path": "UI/Windows/RasterSoundWindow.axaml.cs",
+      "stored_path": "UI/Windows/RasterSoundWindow.axaml.cs",
+      "encoding": "utf-8",
+      "base_sha256": null,
+      "sha256": "c4b047392466f18c6e8acb30a5199afb6f6a15d2b09f8f2a4383694b5d0a1e66"
+    }
+  ]
+}

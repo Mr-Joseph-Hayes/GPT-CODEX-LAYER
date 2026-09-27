@@ -1,0 +1,35 @@
+RASTER 0.1 — WINDOWS AUDIO PLAYTEST
+
+Extract the entire ZIP into a new folder, then open Raster.exe.
+Use File > Open (Ctrl O) or drag your own NES/SNES ROM into the window.
+No games, ROM downloads, or firmware downloads are included.
+
+Sound: Sound button, Ctrl Shift A, or gamepad Back + Start.
+Volume: top slider or Ctrl + / Ctrl -.
+Mute/unmute: top button or Ctrl M. Muting remembers the volume.
+Fullscreen: F11. Pause: Esc. Save states and controller configuration remain
+available from the MesenCE menus.
+
+Sound panel gamepad controls use logical XInput labels:
+D-pad up/down: focus; left/right: adjust slider or selection.
+A: select; B: close; L1/R1: volume down/up.
+Printed button labels may differ on an 8BitDo controller.
+
+Reference is the default. Vanilla and Direct bypass audio presentation
+processing, including legacy EQ/reverb/crossfeed. They are audio modes, not
+an automatic reset of game cheats, patches, HD packs, or video settings.
+
+Defaults: audio on, volume 80%, 48 kHz, requested 30 ms buffer, VSync on,
+15% scanlines. End-to-end audio latency depends on the output device.
+
+System spatial audio: use Direct, then enable your own operating-system
+spatial renderer. This build is neither THX-certified nor Dolby-certified
+and does not implement their proprietary encoders.
+
+This is the native audio milestone. The new full-screen library/boot flow,
+manual browser, achievements, browser emulator, and store builds are not
+implemented in this release. Existing MesenCE features remain available.
+
+Settings and saves in this portable package stay beside the executable.
+Keep this folder separate from an existing Mesen installation.
+Source: see the matching Raster source artifact. GPL-3.0-or-later.

@@ -1,0 +1,83 @@
+<Window xmlns="https://github.com/avaloniaui"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+ xmlns:cfg="using:Mesen.Config" xmlns:c="using:Mesen.Controls"
+ x:Class="Mesen.Windows.RasterSoundWindow" x:DataType="cfg:AudioConfig"
+ Title="Raster — Sound" Width="940" Height="720" MinWidth="680" MinHeight="480"
+ Background="#101418" Foreground="#E3EBEB" FontFamily="avares://Mesen/Assets/RasterDisplay.ttf#Raster Display"
+ FontSize="16" WindowStartupLocation="CenterOwner" RequestedThemeVariant="Dark">
+ <Window.Styles>
+  <Style Selector="TextBlock"><Setter Property="Foreground" Value="#E3EBEB" /></Style>
+  <Style Selector="TextBlock.note"><Setter Property="Foreground" Value="#94A6AB" /><Setter Property="FontSize" Value="14" /><Setter Property="TextWrapping" Value="Wrap" /></Style>
+  <Style Selector="Button.preset"><Setter Property="HorizontalAlignment" Value="Stretch" /><Setter Property="HorizontalContentAlignment" Value="Left" /><Setter Property="Padding" Value="16 11" /><Setter Property="Margin" Value="0 0 0 6" /><Setter Property="Background" Value="#192127" /><Setter Property="BorderBrush" Value="#26363D" /><Setter Property="CornerRadius" Value="8" /></Style>
+  <Style Selector="Button.active"><Setter Property="Background" Value="#204A45" /><Setter Property="BorderBrush" Value="#84C8B8" /></Style>
+  <Style Selector="Button:focus"><Setter Property="BorderBrush" Value="#D3FFF1" /><Setter Property="BorderThickness" Value="2" /></Style>
+  <Style Selector="Border.card"><Setter Property="Background" Value="#171E23" /><Setter Property="BorderBrush" Value="#2B3A42" /><Setter Property="BorderThickness" Value="1" /><Setter Property="CornerRadius" Value="14" /><Setter Property="Padding" Value="20" /></Style>
+ </Window.Styles>
+ <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+ <StackPanel Margin="30" Spacing="20">
+  <Grid ColumnDefinitions="*,Auto">
+   <StackPanel Spacing="9">
+    <TextBlock Text="RASTER / SOUND" FontSize="24" Foreground="#AFF2DA" />
+    <TextBlock Text="Old worlds. Beautifully heard." Classes="note" />
+   </StackPanel>
+   <Button Grid.Column="1" Content="Done" Click="OnDone" Padding="20 9" VerticalAlignment="Top" />
+  </Grid>
+  <Grid ColumnDefinitions="210,24,*">
+   <StackPanel Name="PresetPanel" Spacing="0">
+    <TextBlock Text="LISTENING MODE" Classes="note" Margin="0 0 0 12" />
+    <Button Classes="preset" Tag="0" Click="OnPreset" Content="Reference" />
+    <Button Classes="preset" Tag="1" Click="OnPreset" Content="Vanilla" />
+    <Button Classes="preset" Tag="2" Click="OnPreset" Content="CRT / Living Room" />
+    <Button Classes="preset" Tag="3" Click="OnPreset" Content="Headphones" />
+    <Button Classes="preset" Tag="4" Click="OnPreset" Content="Night" />
+    <Button Classes="preset" Tag="5" Click="OnPreset" Content="Cinema" />
+    <Button Classes="preset" Tag="6" Click="OnPreset" Content="Direct" />
+    <TextBlock Text="All modes output stereo PCM." Classes="note" Margin="0 13 0 0" />
+    <TextBlock Text="NES mono stays mono. No invented surround channels." Classes="note" Margin="0 9 0 0" />
+   </StackPanel>
+   <StackPanel Grid.Column="2" Spacing="14">
+    <Border Classes="card">
+     <StackPanel Spacing="10">
+      <Grid ColumnDefinitions="*,Auto">
+       <StackPanel><TextBlock Name="ModeName" Text="REFERENCE" FontSize="20" Foreground="#AFF2DA" /><TextBlock Name="PlaybackStatus" Text="SOUND ON" Classes="note" Margin="0 6 0 0" /></StackPanel>
+       <TextBlock Grid.Column="1" Name="VolumeReadout" Text="080" FontSize="42" Foreground="#C8FBE8" />
+      </Grid>
+      <Slider Name="MasterSlider" Minimum="0" Maximum="100" TickFrequency="1" IsSnapToTickEnabled="True" Value="{Binding MasterVolume, Mode=TwoWay}" AutomationProperties.Name="Master volume" />
+      <Grid ColumnDefinitions="*,Auto">
+       <TextBlock Text="MASTER VOLUME" Classes="note" VerticalAlignment="Center" />
+       <Button Name="MuteButton" Grid.Column="1" Content="Mute" Click="OnMute" MinWidth="96" />
+      </Grid>
+      <TextBlock Name="Description" Text="Balanced, faithful stereo with 3 dB of headroom." Classes="note" Margin="0 4 0 0" />
+     </StackPanel>
+    </Border>
+    <Border Classes="card">
+     <StackPanel Spacing="8">
+      <Grid ColumnDefinitions="*,Auto"><TextBlock Text="FINE TUNING" Foreground="#AFF2DA" /><Button Grid.Column="1" Content="Reset tuning" Click="OnResetTone" FontSize="13" /></Grid>
+      <StackPanel Name="TonePanel" Spacing="6">
+       <Grid ColumnDefinitions="100,*,62"><TextBlock Text="Bass" VerticalAlignment="Center" /><Slider Grid.Column="1" Minimum="-6" Maximum="6" TickFrequency="0.5" IsSnapToTickEnabled="True" Value="{Binding RasterBassDb, Mode=TwoWay}" AutomationProperties.Name="Bass adjustment" /><TextBlock Grid.Column="2" Text="{Binding RasterBassDb, StringFormat='{}{0:0.0} dB'}" VerticalAlignment="Center" FontSize="13" /></Grid>
+       <Grid ColumnDefinitions="100,*,62"><TextBlock Text="Treble" VerticalAlignment="Center" /><Slider Grid.Column="1" Minimum="-6" Maximum="6" TickFrequency="0.5" IsSnapToTickEnabled="True" Value="{Binding RasterTrebleDb, Mode=TwoWay}" AutomationProperties.Name="Treble adjustment" /><TextBlock Grid.Column="2" Text="{Binding RasterTrebleDb, StringFormat='{}{0:0.0} dB'}" VerticalAlignment="Center" FontSize="13" /></Grid>
+       <Grid ColumnDefinitions="100,*,62"><TextBlock Text="Width" VerticalAlignment="Center" /><Slider Grid.Column="1" Minimum="0" Maximum="1.5" TickFrequency="0.05" IsSnapToTickEnabled="True" Value="{Binding RasterWidth, Mode=TwoWay}" AutomationProperties.Name="Stereo width multiplier" /><TextBlock Grid.Column="2" Text="{Binding RasterWidth, StringFormat='{}{0:0.00}x'}" VerticalAlignment="Center" FontSize="13" /></Grid>
+       <Grid ColumnDefinitions="100,*,62"><TextBlock Text="Trim" VerticalAlignment="Center" /><Slider Grid.Column="1" Minimum="-12" Maximum="0" TickFrequency="0.5" IsSnapToTickEnabled="True" Value="{Binding RasterTrimDb, Mode=TwoWay}" AutomationProperties.Name="Output trim" /><TextBlock Grid.Column="2" Text="{Binding RasterTrimDb, StringFormat='{}{0:0.0} dB'}" VerticalAlignment="Center" FontSize="13" /></Grid>
+       <CheckBox IsChecked="{Binding RasterPeakProtection, Mode=TwoWay}" Content="Sample-peak protection" FontSize="14" />
+      </StackPanel>
+      <TextBlock Name="BypassNote" Text="Vanilla and Direct bypass tone, width, dynamics, and legacy effects. Master volume remains active." Classes="note" IsVisible="False" />
+     </StackPanel>
+    </Border>
+   </StackPanel>
+  </Grid>
+  <Border Classes="card">
+   <StackPanel Spacing="12">
+    <TextBlock Text="OUTPUT" Foreground="#AFF2DA" />
+    <Grid ColumnDefinitions="*,16,130,16,130">
+     <StackPanel Spacing="5"><TextBlock Text="Device" Classes="note" /><ComboBox Name="DeviceList" HorizontalAlignment="Stretch" SelectionChanged="OnDeviceChanged" AutomationProperties.Name="Output device" /></StackPanel>
+     <StackPanel Grid.Column="2" Spacing="5"><TextBlock Text="Sample rate" Classes="note" /><c:EnumComboBox SelectedItem="{Binding SampleRate}" HorizontalAlignment="Stretch" /></StackPanel>
+     <StackPanel Grid.Column="4" Spacing="5"><TextBlock Text="Buffer (ms)" Classes="note" /><c:MesenNumericUpDown Minimum="15" Maximum="300" Value="{Binding AudioLatency}" /></StackPanel>
+    </Grid>
+    <TextBlock Name="OutputStatus" Text="48 kHz / stereo PCM / requested buffer 30 ms" Classes="note" />
+    <TextBlock Text="For your operating system's spatial audio, choose Direct and enable the spatial renderer in system sound settings. Raster does not encode Atmos or THX audio." Classes="note" />
+   </StackPanel>
+  </Border>
+  <TextBlock Text="Ctrl + / -  volume     Ctrl M  mute     Ctrl Shift A  sound&#10;Gamepad: Back + Start opens sound; D-pad moves focus.&#10;A confirms; B closes; L/R adjusts volume." Classes="note" />
+ </StackPanel>
+ </ScrollViewer>
+</Window>
