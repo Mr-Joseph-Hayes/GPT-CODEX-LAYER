@@ -1,4 +1,4 @@
-name: Raster Windows audio build
+name: Raster Windows library build
 on:
   push:
     branches: ['main']
@@ -79,7 +79,7 @@ jobs:
         if: failure()
         uses: actions/upload-artifact@v7
         with:
-          name: Raster-Startup-Diagnostics-v0.1.0
+          name: Raster-Startup-Diagnostics-v0.2.0
           path: package/Raster/
           if-no-files-found: warn
       - name: Restore first-run defaults after QA
@@ -90,14 +90,14 @@ jobs:
       - name: Upload Windows build
         uses: actions/upload-artifact@v7
         with:
-          name: Raster-Windows-x64-v0.1.0
+          name: Raster-Windows-x64-v0.2.0
           path: package/Raster/
           if-no-files-found: error
       - name: Upload source and QA image
         if: always()
         uses: actions/upload-artifact@v7
         with:
-          name: Raster-Source-and-QA-v0.1.0
+          name: Raster-Source-and-QA-v0.2.0
           path: |
             package/Source/
             package/Raster-Sound.png
