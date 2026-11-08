@@ -42,6 +42,7 @@ namespace Mesen.Utilities
 				case EmulatorShortcut.PowerOff: PowerOff(); break;
 				case EmulatorShortcut.Exit: _mainWindow.Close(); break;
 
+				case EmulatorShortcut.OpenRasterLibrary: RasterLibrary.Open(_mainWindow); break;
 				case EmulatorShortcut.OpenRasterSound: RasterSound.Open(_mainWindow); break;
 				case EmulatorShortcut.ToggleAudio: ToggleAudio(); break;
 				case EmulatorShortcut.IncreaseVolume: IncreaseVolume(); break;
