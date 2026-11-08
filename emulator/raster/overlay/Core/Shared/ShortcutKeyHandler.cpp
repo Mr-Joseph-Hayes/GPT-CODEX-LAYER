@@ -128,6 +128,7 @@ bool ShortcutKeyHandler::IsShortcutAllowed(EmulatorShortcut shortcut, uint32_t s
 	bool isMovieActive = isMoviePlaying || isMovieRecording;
 
 	switch(shortcut) {
+        case EmulatorShortcut::OpenRasterLibrary:
         case EmulatorShortcut::OpenRasterSound: return true;
 		case EmulatorShortcut::ToggleRewind:
 		case EmulatorShortcut::Rewind:
