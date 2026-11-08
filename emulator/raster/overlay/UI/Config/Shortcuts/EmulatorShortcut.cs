@@ -141,6 +141,7 @@ namespace Mesen.Config.Shortcuts
 		StartRecordHdPack,
 		StopRecordHdPack,
 
+		OpenRasterLibrary,
 		OpenRasterSound,
 		LastValidValue,
 		[Obsolete] LoadRandomGame,
