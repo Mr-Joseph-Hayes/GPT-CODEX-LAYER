@@ -114,6 +114,7 @@ namespace Mesen.Config
 			AddShortcut(new ShortcutKeyInfo { Shortcut = EmulatorShortcut.DecreaseSpeed, KeyCombination = new KeyCombination() { Key1 = InputApi.GetKeyCode("-") } });
 			AddShortcut(new ShortcutKeyInfo { Shortcut = EmulatorShortcut.MaxSpeed, KeyCombination = new KeyCombination() { Key1 = InputApi.GetKeyCode("F9") } });
 
+			AddShortcut(new ShortcutKeyInfo { Shortcut = EmulatorShortcut.OpenRasterLibrary, KeyCombination = new KeyCombination() { Key1 = ctrl, Key2 = shift, Key3 = InputApi.GetKeyCode("L") }, KeyCombination2 = new KeyCombination() { Key1 = InputApi.GetKeyCode("Pad1 Back"), Key2 = InputApi.GetKeyCode("Pad1 Y") } });
 			AddShortcut(new ShortcutKeyInfo { Shortcut = EmulatorShortcut.OpenRasterSound, KeyCombination = new KeyCombination() { Key1 = ctrl, Key2 = shift, Key3 = InputApi.GetKeyCode("A") }, KeyCombination2 = new KeyCombination() { Key1 = InputApi.GetKeyCode("Pad1 Back"), Key2 = InputApi.GetKeyCode("Pad1 Start") } });
 			AddShortcut(new ShortcutKeyInfo { Shortcut = EmulatorShortcut.ToggleAudio, KeyCombination = new KeyCombination() { Key1 = ctrl, Key2 = InputApi.GetKeyCode("M") } });
 			AddShortcut(new ShortcutKeyInfo { Shortcut = EmulatorShortcut.IncreaseVolume, KeyCombination = new KeyCombination() { Key1 = ctrl, Key2 = InputApi.GetKeyCode("=") } });
