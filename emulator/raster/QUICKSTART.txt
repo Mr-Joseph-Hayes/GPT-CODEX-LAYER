@@ -33,3 +33,20 @@ implemented in this release. Existing MesenCE features remain available.
 Settings and saves in this portable package stay beside the executable.
 Keep this folder separate from an existing Mesen installation.
 Source: see the matching Raster source artifact. GPL-3.0-or-later.
+
+
+RASTER LIBRARY
+--------------
+Open Library from the top bar, press Ctrl+Shift+L, or use Back+Y on the gamepad.
+
+Local user content is not bundled with the public build. Put the RasterLibrary folder next to Raster.exe:
+  RasterLibrary\Shadowgate\Shadowgate (USA).nes
+  RasterLibrary\Shadowgate\Shadowgate-NES-Guide.pdf
+  RasterLibrary\Kid Icarus Infinite Underworld 1.0\Infinite Underworld.exe
+  RasterLibrary\Kid Icarus Infinite Underworld 2.0\Infinite Underworld.exe
+
+Gamepad in Library:
+  D-pad       move focus
+  A           select
+  B           close
+  Back + Y    open Library
