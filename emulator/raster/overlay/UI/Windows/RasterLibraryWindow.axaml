@@ -1,0 +1,81 @@
+<Window xmlns="https://github.com/avaloniaui"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+ x:Class="Mesen.Windows.RasterLibraryWindow"
+ Title="Raster — Library" Width="980" Height="720" MinWidth="760" MinHeight="560"
+ Background="#0D1216" Foreground="#E3EBEB"
+ FontFamily="avares://Mesen/Assets/RasterDisplay.ttf#Raster Display"
+ FontSize="16" WindowStartupLocation="CenterOwner" RequestedThemeVariant="Dark">
+ <Window.Styles>
+  <Style Selector="TextBlock"><Setter Property="Foreground" Value="#E3EBEB" /></Style>
+  <Style Selector="TextBlock.note"><Setter Property="Foreground" Value="#94A6AB" /><Setter Property="FontSize" Value="14" /><Setter Property="TextWrapping" Value="Wrap" /></Style>
+  <Style Selector="TextBlock.tag"><Setter Property="Foreground" Value="#C7A8FF" /><Setter Property="FontSize" Value="13" /></Style>
+  <Style Selector="Border.card"><Setter Property="Background" Value="#151D22" /><Setter Property="BorderBrush" Value="#2B3A42" /><Setter Property="BorderThickness" Value="1" /><Setter Property="CornerRadius" Value="14" /><Setter Property="Padding" Value="18" /></Style>
+  <Style Selector="Button.action"><Setter Property="Padding" Value="18 10" /><Setter Property="MinWidth" Value="122" /><Setter Property="Background" Value="#1A252A" /><Setter Property="BorderBrush" Value="#34505A" /><Setter Property="CornerRadius" Value="8" /></Style>
+  <Style Selector="Button.primary"><Setter Property="Background" Value="#204A45" /><Setter Property="BorderBrush" Value="#84C8B8" /></Style>
+  <Style Selector="Button:focus"><Setter Property="BorderBrush" Value="#D3FFF1" /><Setter Property="BorderThickness" Value="2" /></Style>
+ </Window.Styles>
+ <Grid RowDefinitions="Auto,*,Auto">
+  <Border Grid.Row="0" Background="#111A1E" BorderBrush="#24323A" BorderThickness="0 0 0 1" Padding="26 18">
+   <Grid ColumnDefinitions="*,Auto">
+    <StackPanel Spacing="6">
+     <TextBlock Text="RASTER / LIBRARY" FontSize="25" Foreground="#AFF2DA" />
+     <TextBlock Text="Local games. Console-first controls. No ROMs or commercial files are bundled with Raster." Classes="note" />
+    </StackPanel>
+    <Button Grid.Column="1" Name="DoneButton" Content="Done" Classes="action" Click="OnDone" VerticalAlignment="Center" />
+   </Grid>
+  </Border>
+  <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+   <StackPanel Margin="26" Spacing="16">
+    <Border Classes="card">
+     <Grid ColumnDefinitions="*,Auto">
+      <StackPanel Spacing="7">
+       <TextBlock Text="SHADOWGATE" FontSize="22" Foreground="#AFF2DA" />
+       <TextBlock Text="NES • 1989 • adventure" Classes="tag" />
+       <TextBlock Text="Native Raster emulation. D-pad moves the pointer; A confirms. The uploaded hint book is linked as a local guide." Classes="note" MaxWidth="620" />
+       <TextBlock Name="ShadowgateStatus" Text="CHECKING LOCAL FILES..." Classes="note" Margin="0 5 0 0" />
+      </StackPanel>
+      <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="10" VerticalAlignment="Center">
+       <Button Name="ShadowgatePlay" Content="Play" Classes="action primary" Click="OnShadowgatePlay" />
+       <Button Name="ShadowgateGuide" Content="Guide" Classes="action" Click="OnShadowgateGuide" />
+      </StackPanel>
+     </Grid>
+    </Border>
+    <Border Classes="card">
+     <Grid ColumnDefinitions="*,Auto">
+      <StackPanel Spacing="7">
+       <TextBlock Text="KID ICARUS: INFINITE UNDERWORLD" FontSize="22" Foreground="#AFF2DA" />
+       <TextBlock Text="VERSION 1.0 • WINDOWS / UNITY" Classes="tag" />
+       <TextBlock Text="External game entry. Native joystick mappings are preserved; Raster launches the supplied build without keyboard remapping." Classes="note" MaxWidth="620" />
+       <TextBlock Name="Icarus10Status" Text="CHECKING LOCAL FILES..." Classes="note" Margin="0 5 0 0" />
+      </StackPanel>
+      <Button Grid.Column="1" Name="Icarus10Play" Content="Launch 1.0" Classes="action primary" Click="OnIcarus10Play" VerticalAlignment="Center" />
+     </Grid>
+    </Border>
+    <Border Classes="card">
+     <Grid ColumnDefinitions="*,Auto">
+      <StackPanel Spacing="7">
+       <TextBlock Text="KID ICARUS: INFINITE UNDERWORLD" FontSize="22" Foreground="#AFF2DA" />
+       <TextBlock Text="VERSION 2.0 • WINDOWS / UNITY" Classes="tag" />
+       <TextBlock Text="Kept as a separate selectable build so 1.0 remains available for comparison, saves, and compatibility testing." Classes="note" MaxWidth="620" />
+       <TextBlock Name="Icarus20Status" Text="CHECKING LOCAL FILES..." Classes="note" Margin="0 5 0 0" />
+      </StackPanel>
+      <Button Grid.Column="1" Name="Icarus20Play" Content="Launch 2.0" Classes="action primary" Click="OnIcarus20Play" VerticalAlignment="Center" />
+     </Grid>
+    </Border>
+    <Border Classes="card">
+     <Grid ColumnDefinitions="*,Auto">
+      <StackPanel Spacing="6">
+       <TextBlock Text="LOCAL CONTENT BAY" Foreground="#AFF2DA" />
+       <TextBlock Name="LibraryPath" Classes="note" TextWrapping="Wrap" />
+       <TextBlock Text="Raster verifies known files by SHA-256 and reports if a different build is present. Content remains outside the public source repository." Classes="note" />
+      </StackPanel>
+      <Button Grid.Column="1" Name="FolderButton" Content="Open Folder" Classes="action" Click="OnOpenFolder" VerticalAlignment="Center" />
+     </Grid>
+    </Border>
+   </StackPanel>
+  </ScrollViewer>
+  <Border Grid.Row="2" Background="#111A1E" BorderBrush="#24323A" BorderThickness="0 1 0 0" Padding="26 12">
+   <TextBlock Text="GAMEPAD  Back+Y: library   D-pad: move focus   A: select   B: close     KEYBOARD  Ctrl+Shift+L" Classes="note" />
+  </Border>
+ </Grid>
+</Window>
