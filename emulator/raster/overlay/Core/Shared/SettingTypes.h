@@ -1123,6 +1123,7 @@ enum class EmulatorShortcut
 	StartRecordHdPack,
 	StopRecordHdPack,
 
+	OpenRasterLibrary,
 	OpenRasterSound,
 	ShortcutCount,
 };
