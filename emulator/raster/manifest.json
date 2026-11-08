@@ -1,5 +1,5 @@
 {
-  "version": "0.1.0",
+  "version": "0.2.0",
   "upstream_repository": "nesdev-org/MesenCE",
   "upstream_commit": "a60e79feb4d6dcced5922d636f9211837d01e381",
   "files": [
@@ -29,14 +29,14 @@
       "stored_path": "Core/Shared/SettingTypes.h",
       "encoding": "utf-8",
       "base_sha256": "30d691d7f106cf3672d8d2fbe8684e3fc7f203a3d839819d18d47881edc3059e",
-      "sha256": "29a64655e28f1b2f89bed776df9c56fa510ccd81ed67f20fa1f8f7841a31e3a1"
+      "sha256": "324c09d36e8507055d963623e187bf482216b4a67d80d485610fd2b9be994963"
     },
     {
       "path": "Core/Shared/ShortcutKeyHandler.cpp",
       "stored_path": "Core/Shared/ShortcutKeyHandler.cpp",
       "encoding": "utf-8",
       "base_sha256": "a741503a7c0144100b223c224c3459b29fa3b11cc8a767e5b3f1ce9f19fa2132",
-      "sha256": "fadf934f5f5b08c1297c3c641d96be432f410da6cfe3918d502afa526890e1d7"
+      "sha256": "ade4817768482981d73087b4206ff31107e7926146d714e360d8395accca85ea"
     },
     {
       "path": "Core/Shared/Video/DrawStringCommand.h",
@@ -85,14 +85,14 @@
       "stored_path": "UI/Config/PreferencesConfig.cs",
       "encoding": "utf-8",
       "base_sha256": "89f5ec2c49a37fd138b29e0ccb343b99a545596932bc71f0a6532ae07f3fa8d1",
-      "sha256": "e713d2f8dfe022dfb9d149a9b4837af82533e5df4d754edc0d0f093e8a419ade"
+      "sha256": "a9c72303bf52d569eba2c95ba1c342b4b6a6392dba6a60a327809d6162a28ade"
     },
     {
       "path": "UI/Config/Shortcuts/EmulatorShortcut.cs",
       "stored_path": "UI/Config/Shortcuts/EmulatorShortcut.cs",
       "encoding": "utf-8",
       "base_sha256": "4e805f440472a6fa2ae41efa2fd6f43e63e299a72e365cab95e87a2c92e46d98",
-      "sha256": "e30ac3e637f2a1cdc0cc9cbfbacdadb7adff5364c9509152f89d768ecc8b1b62"
+      "sha256": "d8d50a416dba2e3601b5cf7578c13306e5e704a95ee1031055c485e63c8c5278"
     },
     {
       "path": "UI/Config/VideoConfig.cs",
@@ -113,7 +113,7 @@
       "stored_path": "UI/Utilities/ShortcutHandler.cs",
       "encoding": "utf-8",
       "base_sha256": "22052c76f810dab0c8aa14ac33e62ef59610072c784507082d976c8cfc4fe0bb",
-      "sha256": "cc8113521484c3e1d12a835bb697d02a6a7478185d423e332761d9707abd389a"
+      "sha256": "8ee68b38e46d7faf76129f7079bb4607929b2e61d01265e280c7fc35ff663c75"
     },
     {
       "path": "UI/ViewModels/MainWindowViewModel.cs",
@@ -134,14 +134,14 @@
       "stored_path": "UI/Windows/MainWindow.axaml",
       "encoding": "utf-8",
       "base_sha256": "ce8062bbea7b02cf2e81b9e191d850cf3a0d23d344971769593e040cceae8712",
-      "sha256": "b3de8942f1cc5f500ee631c56f8be5e61a9559ae5e81ffadd9108aa18c70e994"
+      "sha256": "25bd33e3efb84bdf43b75facd216a29221477f8ce8c53f944d44be96a5ef39aa"
     },
     {
       "path": "UI/Windows/MainWindow.axaml.cs",
       "stored_path": "UI/Windows/MainWindow.axaml.cs",
       "encoding": "utf-8",
       "base_sha256": "d20d5aeb9343e260fa894e8ac9aeca36f2c31456975cca9c2baaca1f3d94b1be",
-      "sha256": "0ad1ea1672103c66a776a1c7942d882a52324b6dbe5bc37886c2a4bdcb082020"
+      "sha256": "3bd94520c57f2d3554217b2294bc59376679f73cfcebd177e38206f13223cb39"
     },
     {
       "path": "UI/Windows/RasterSoundWindow.axaml",
@@ -163,6 +163,27 @@
       "encoding": "utf-8",
       "base_sha256": "d1051a0216f33b5cab5c0b38577d4080c83a16abc9f87afa127cd8ee20e45f8f",
       "sha256": "6292cfd0d11af4eb17d98bf3bf26552f5c8ac8cb4907ea3c24cd5a368118b25d"
+    },
+    {
+      "path": "UI/Utilities/RasterLibrary.cs",
+      "stored_path": "UI/Utilities/RasterLibrary.cs",
+      "encoding": "utf-8",
+      "base_sha256": null,
+      "sha256": "a2ffd42b2d5fa23e50727bbd35c5788536f7feb5782c4c2a9f1fb7ee7bb6c688"
+    },
+    {
+      "path": "UI/Windows/RasterLibraryWindow.axaml",
+      "stored_path": "UI/Windows/RasterLibraryWindow.axaml",
+      "encoding": "utf-8",
+      "base_sha256": null,
+      "sha256": "35e04cce3eb2e01cea46f62123d7bd39bfdcc8370996a6dfdd3a405a370dbefb"
+    },
+    {
+      "path": "UI/Windows/RasterLibraryWindow.axaml.cs",
+      "stored_path": "UI/Windows/RasterLibraryWindow.axaml.cs",
+      "encoding": "utf-8",
+      "base_sha256": null,
+      "sha256": "e513c957fc5892e32496dd1aecaba5c3c004ae21b17c5dfea1b89a78bc4bf0cd"
     }
   ]
 }
