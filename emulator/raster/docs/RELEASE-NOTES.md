@@ -1,3 +1,38 @@
+# Raster 0.2.0 — controller library milestone
+
+This milestone adds Raster's first console-style local library while keeping user-supplied games and guides outside the public repository.
+
+## Library
+
+- New **RASTER / LIBRARY** screen using the Raster Display typeface and existing dark CRT-inspired presentation.
+- Controller-first navigation: **Back + Y** opens the library, D-pad moves focus, A selects, B closes.
+- Keyboard shortcut: **Ctrl + Shift + L**.
+- Shadowgate is treated as a native NES title and launches through the MesenCE core.
+- The user's Shadowgate hint book appears as a local **Guide** action.
+- Kid Icarus: Infinite Underworld 1.0 and 2.0 remain separate selectable Windows builds.
+- Infinite Underworld launches externally so its native Unity joystick mapping is preserved.
+- Known local files are identified with SHA-256 checks and reported as verified/different/missing.
+- Raster never commits or redistributes the ROM, fan-game executables, or commercial guide in the public source tree.
+
+## Local content layout
+
+Place the user-owned content pack in a `RasterLibrary` folder beside `Raster.exe`.
+
+```text
+RasterLibrary/
+  Shadowgate/
+    Shadowgate (USA).nes
+    Shadowgate-NES-Guide.pdf
+  Kid Icarus Infinite Underworld 1.0/
+    Infinite Underworld.exe
+    Infinite Underworld_Data/...
+  Kid Icarus Infinite Underworld 2.0/
+    Infinite Underworld.exe
+    Infinite Underworld_Data/...
+```
+
+---
+
 # Raster 0.1.0 — native audio milestone
 
 Raster is a working-name customization of Mesen Community Edition for Joseph Hayes.
