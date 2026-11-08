@@ -735,6 +735,7 @@ namespace Mesen.Windows
 			return false;
 		}
 
+        private void OpenRasterLibrary(object? sender, RoutedEventArgs e) => RasterLibrary.Open(this);
         private void OpenRasterSound(object? sender, RoutedEventArgs e) => RasterSound.Open(this);
         private void ToggleRasterMute(object? sender, RoutedEventArgs e)
         {
