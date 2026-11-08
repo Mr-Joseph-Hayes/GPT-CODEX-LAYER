@@ -29,3 +29,10 @@ The current font builder and development integration scripts assume this workspa
 
 See `QUICKSTART.txt` and `docs/RELEASE-NOTES.md` for controls and exact feature boundaries.
 The source is GPL-3.0-or-later. No copyrighted game files are included.
+
+
+## Raster Library
+
+Version 0.2.0 adds a controller-first local library. Back+Y opens it; D-pad navigates; A selects; B closes. Shadowgate launches through the NES core, its local hint book is available through Guide, and Kid Icarus: Infinite Underworld 1.0/2.0 are retained as distinct external Windows entries.
+
+The public repository contains only integration code, filenames, and verification hashes. User-owned ROMs, guides, and fan-game binaries remain local.
